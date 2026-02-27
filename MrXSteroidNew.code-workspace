@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"geminicodeassist.outlines.automaticOutlineGeneration": true,
+		"github-actions.workflows.pinned.refresh.enabled": true,
+		"github-actions.use-enterprise": false
+	}
+}

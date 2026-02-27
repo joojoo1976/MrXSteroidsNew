@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Iron &amp; Grit Design System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d92323", // 'Pump' Red adapted to primary role
+                        "primary-dark": "#b01b1b",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922", // Deep Charcoal
+                        "surface-dark": "#1a2632",
+                        "text-secondary": "#92adc9",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Header / Navigation Stub -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+<div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">fitness_center</span>
+<span class="text-xl font-bold tracking-tight text-white">Iron &amp; Grit <span class="text-text-secondary font-normal text-sm ml-2">Design System</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-text-secondary">
+<a class="text-white hover:text-primary transition-colors" href="#">Foundation</a>
+<a class="hover:text-primary transition-colors" href="#">Components</a>
+<a class="hover:text-primary transition-colors" href="#">Patterns</a>
+<a class="hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-12">
+<!-- Hero Section -->
+<div class="mb-20">
+<div class="flex flex-col gap-4 max-w-3xl">
+<div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        v2.0.4 - Updated Typography
+                    </div>
+<h1 class="text-4xl sm:text-6xl font-black leading-tight tracking-tight text-white">
+                        Iron &amp; Grit <span class="text-primary">Design System</span>
+</h1>
+<p class="text-text-secondary text-lg sm:text-xl leading-relaxed max-w-2xl">
+                        The single source of truth for our premium bodybuilding coaching platform. This guide defines our visual language, from the intensity of 'Pump Red' to the structure of our scheduling components.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:block lg:col-span-3 sticky top-24 h-fit">
+<nav class="flex flex-col gap-8 border-l border-white/10 pl-6">
+<div class="flex flex-col gap-3">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Core</h3>
+<a class="text-primary font-medium pl-2 border-l-2 border-primary -ml-[26px]" href="#colors">Colors</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#typography">Typography</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#iconography">Iconography</a>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Components</h3>
+<a class="text-text-secondary hover:text-white transition-colors" href="#buttons">Buttons</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#inputs">Inputs &amp; Forms</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#cards">Cards</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<div class="col-span-1 lg:col-span-9 flex flex-col gap-24">
+<!-- Colors Section -->
+<section class="scroll-mt-24" id="colors">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">palette</span>
+<h2 class="text-3xl font-bold text-white">Color Palette</h2>
+</div>
+<p class="text-text-secondary mb-8">Our colors are designed to evoke strength and focus. "Pump Red" is used sparingly for primary actions, while "Deep Charcoal" provides a sleek, modern background.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<!-- Primary -->
+<div class="group rounded-xl overflow-hidden bg-surface-dark border border-white/5 shadow-lg">
+<div class="h-32 bg-primary w-full flex items-center justify-center">
+<span class="text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">Primary</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-1">
+<p class="font-bold text-white">Pump Red</p>
+<p class="text-xs text-text-secondary">#D92323</p>
+</div>
+<p class="text-sm text-text-secondary">Primary actions, highlights, active states.</p>
+</div>
+</div>
+<!-- Background -->
+<div class="group rounded-xl overflow-hidden bg-surface-dark border border-white/5 shadow-lg">
+<div class="h-32 bg-background-dark w-full border-b border-white/5 flex items-center justify-center">
+<span class="text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">Bg Dark</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-1">
+<p class="font-bold text-white">Deep Charcoal</p>
+<p class="text-xs text-text-secondary">#101922</p>
+</div>
+<p class="text-sm text-text-secondary">Main application background.</p>
+</div>
+</div>
+<!-- Surface -->
+<div class="group rounded-xl overflow-hidden bg-surface-dark border border-white/5 shadow-lg">
+<div class="h-32 bg-surface-dark w-full border-b border-white/5 flex items-center justify-center">
+<span class="text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">Surface</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-1">
+<p class="font-bold text-white">Iron Grey</p>
+<p class="text-xs text-text-secondary">#1A2632</p>
+</div>
+<p class="text-sm text-text-secondary">Cards, modals, sidebars.</p>
+</div>
+</div>
+</div>
+<!-- Shades -->
+<div class="mt-8 flex flex-col gap-2">
+<h3 class="text-sm font-bold uppercase text-text-secondary mb-2">Neutral Scale</h3>
+<div class="flex w-full rounded-lg overflow-hidden h-12">
+<div class="flex-1 bg-white flex items-end p-2 text-[10px] text-black font-bold">50</div>
+<div class="flex-1 bg-slate-200 flex items-end p-2 text-[10px] text-black font-bold">100</div>
+<div class="flex-1 bg-slate-400 flex items-end p-2 text-[10px] text-black font-bold">400</div>
+<div class="flex-1 bg-slate-600 flex items-end p-2 text-[10px] text-white font-bold">600</div>
+<div class="flex-1 bg-slate-800 flex items-end p-2 text-[10px] text-white font-bold">800</div>
+<div class="flex-1 bg-slate-900 flex items-end p-2 text-[10px] text-white font-bold">900</div>
+</div>
+</div>
+</section>
+<!-- Typography Section -->
+<section class="scroll-mt-24 border-t border-white/10 pt-16" id="typography">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">format_size</span>
+<h2 class="text-3xl font-bold text-white">Typography</h2>
+</div>
+<p class="text-text-secondary mb-8">We use <span class="text-white font-semibold">Inter</span> for its readability and modern aesthetic. Large weights are used for impact.</p>
+<div class="bg-surface-dark rounded-xl border border-white/5 p-8 flex flex-col gap-8">
+<div class="border-b border-white/5 pb-6">
+<span class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Display Large</span>
+<h1 class="text-5xl md:text-6xl font-black text-white tracking-tight">Make It Count.</h1>
+<p class="text-sm text-text-secondary mt-2">Inter Black / 60px / Tight Tracking</p>
+</div>
+<div class="border-b border-white/5 pb-6">
+<span class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Title Large</span>
+<h2 class="text-3xl font-bold text-white">Your Weekly Schedule</h2>
+<p class="text-sm text-text-secondary mt-2">Inter Bold / 30px</p>
+</div>
+<div class="border-b border-white/5 pb-6">
+<span class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Title Medium</span>
+<h3 class="text-xl font-semibold text-white">Hypertrophy Program Phase 1</h3>
+<p class="text-sm text-text-secondary mt-2">Inter Semibold / 20px</p>
+</div>
+<div>
+<span class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Body Regular</span>
+<p class="text-base text-text-secondary leading-relaxed max-w-2xl">
+                                    Consistency is the key to progress. Ensure you are hitting your macros and getting at least 8 hours of sleep for optimal recovery. This text block demonstrates the standard reading experience.
+                                </p>
+<p class="text-sm text-text-secondary mt-2">Inter Regular / 16px / Relaxed Leading</p>
+</div>
+</div>
+</section>
+<!-- Iconography Section -->
+<section class="scroll-mt-24 border-t border-white/10 pt-16" id="iconography">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">sentiment_satisfied</span>
+<h2 class="text-3xl font-bold text-white">Iconography</h2>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+<!-- Icon Card -->
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">fitness_center</span>
+<span class="text-xs text-text-secondary">Workout</span>
+</div>
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">calendar_month</span>
+<span class="text-xs text-text-secondary">Schedule</span>
+</div>
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">monitor_heart</span>
+<span class="text-xs text-text-secondary">Stats</span>
+</div>
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">nutrition</span>
+<span class="text-xs text-text-secondary">Nutrition</span>
+</div>
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">timer</span>
+<span class="text-xs text-text-secondary">Timer</span>
+</div>
+<div class="bg-surface-dark p-4 rounded-lg border border-white/5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white">group</span>
+<span class="text-xs text-text-secondary">Coaches</span>
+</div>
+</div>
+</section>
+<!-- Buttons Section -->
+<section class="scroll-mt-24 border-t border-white/10 pt-16" id="buttons">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">smart_button</span>
+<h2 class="text-3xl font-bold text-white">Buttons</h2>
+</div>
+<div class="bg-surface-dark rounded-xl border border-white/5 p-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<div class="flex flex-col gap-4 items-start">
+<span class="text-sm font-bold text-white mb-2">Primary</span>
+<button class="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-[0_4px_14px_0_rgba(217,35,35,0.39)] hover:shadow-[0_6px_20px_rgba(217,35,35,0.23)] w-full sm:w-auto">
+                                        Book Session
+                                    </button>
+<button class="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors opacity-50 cursor-not-allowed w-full sm:w-auto">
+                                        Disabled
+                                    </button>
+</div>
+<div class="flex flex-col gap-4 items-start">
+<span class="text-sm font-bold text-white mb-2">Secondary</span>
+<button class="bg-transparent border border-white/20 hover:bg-white/5 text-white font-medium py-3 px-6 rounded-lg transition-colors w-full sm:w-auto">
+                                        View Details
+                                    </button>
+<button class="bg-transparent border border-white/20 text-white font-medium py-3 px-6 rounded-lg transition-colors opacity-50 cursor-not-allowed w-full sm:w-auto">
+                                        Disabled
+                                    </button>
+</div>
+<div class="flex flex-col gap-4 items-start">
+<span class="text-sm font-bold text-white mb-2">Ghost / Text</span>
+<button class="text-text-secondary hover:text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center gap-2 w-full sm:w-auto">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+                                        Go Back
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Cards Section -->
+<section class="scroll-mt-24 border-t border-white/10 pt-16 pb-24" id="cards">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">dashboard</span>
+<h2 class="text-3xl font-bold text-white">Components &amp; Cards</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Profile Card -->
+<div class="bg-surface-dark rounded-xl border border-white/5 p-6 shadow-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-text-secondary hover:text-white cursor-pointer">more_horiz</span>
+</div>
+<div class="flex items-start gap-4">
+<div class="h-16 w-16 rounded-full bg-slate-700 overflow-hidden shrink-0 border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Male fitness coach portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNoRWTRq_BWRpVoiJVccLel4xfY2fsolhzP1sCoiAJAm_nxJYnEsfTgmGCgMfvuHwiXrYVBp8MWUwKBx4ehUMmZr7cG0pxGWVjYQDr5hC6ra0syqKhph_FxLHF2qbeLmjoILZzFc1xMlmadPDp1kpP_Ux-vcNnT-DAcNJ8PeqIfCpJJZX4IgorAlSHA3YFfV1Ih-MWu8w3cIZV84_DTXSYJnE4fSLrWOH5CwmXwf8YLIKkOq5YYnnf21lx5a93Ryh9aDJDbkFBju4"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white">Coach Marcus</h3>
+<p class="text-primary text-sm font-medium mb-1">Bodybuilding Specialist</p>
+<div class="flex items-center gap-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span>4.9 (120 reviews)</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium py-2 rounded-lg transition-colors">Book Now</button>
+<button class="bg-white/5 hover:bg-white/10 text-white p-2 rounded-lg transition-colors border border-white/10">
+<span class="material-symbols-outlined text-xl">chat</span>
+</button>
+</div>
+</div>
+<!-- Appointment Card -->
+<div class="bg-surface-dark rounded-xl border border-white/5 overflow-hidden flex flex-col">
+<div class="h-1 bg-primary w-full"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="text-xs uppercase font-bold text-text-secondary tracking-wider">Next Session</span>
+<h3 class="text-xl font-bold text-white mt-1">Leg Day: Hypertrophy</h3>
+</div>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded text-xs font-bold">
+                                            Today
+                                        </div>
+</div>
+<div class="space-y-3 mt-auto">
+<div class="flex items-center gap-3 text-sm text-text-secondary">
+<span class="material-symbols-outlined text-lg text-primary">schedule</span>
+<span>16:00 - 17:30</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-text-secondary">
+<span class="material-symbols-outlined text-lg text-primary">location_on</span>
+<span>Iron Paradise Gym</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Field Example -->
+<div class="bg-surface-dark rounded-xl border border-white/5 p-6 md:col-span-2">
+<h3 class="text-sm font-bold text-white mb-6 uppercase tracking-wider">Form Elements</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-text-secondary">Full Name</label>
+<input class="bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all w-full" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-text-secondary">Select Goal</label>
+<div class="relative">
+<select class="bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all w-full appearance-none">
+<option>Build Muscle</option>
+<option>Lose Fat</option>
+<option>Competition Prep</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</body></html>
