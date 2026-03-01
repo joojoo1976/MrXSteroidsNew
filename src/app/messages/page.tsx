@@ -4,8 +4,8 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
 export const metadata = {
-  title: "Messages | Iron & Grit",
-  description: "Iron & Grit - Messages | Iron & Grit"
+    title: "Messages | Iron & Grit",
+    description: "Iron & Grit - Messages | Iron & Grit"
 };
 
 
@@ -64,7 +64,7 @@ export default function MessagesPage() {
                 <header className="h-20 border-b border-[var(--color-surface-dark)] flex items-center justify-between p-6 shrink-0 bg-[#0a1017]">
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded bg-[#1a2632] flex items-center justify-center font-bold overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=100&auto=format&fit=crop" alt="Coach" className="w-full h-full object-cover grayscale" />
+                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
                         </div>
                         <div>
                             <h3 className="font-bold text-lg">Alex Mercer</h3>
@@ -84,7 +84,7 @@ export default function MessagesPage() {
                     {/* Received Message */}
                     <div className="flex gap-4 max-w-2xl">
                         <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs">
-                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=100&auto=format&fit=crop" className="w-full h-full object-cover grayscale" />
+                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
                         </div>
                         <div>
                             <Card className="p-4 bg-[var(--color-surface-dark)] border-none text-sm leading-relaxed rounded-tl-none">
@@ -113,7 +113,7 @@ export default function MessagesPage() {
                     {/* Received Message */}
                     <div className="flex gap-4 max-w-2xl">
                         <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs">
-                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=100&auto=format&fit=crop" className="w-full h-full object-cover grayscale" />
+                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
                         </div>
                         <div>
                             <Card className="p-4 bg-[var(--color-surface-dark)] border-none text-sm leading-relaxed rounded-tl-none">

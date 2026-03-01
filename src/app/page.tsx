@@ -278,7 +278,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
             <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-[var(--color-primary)] shrink-0 grayscale shadow-2xl relative">
               <Image
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+                src="/screens/george-maurice-founder.png"
                 alt="George Maurice - Founder of Iron & Grit"
                 fill
                 className="object-cover"

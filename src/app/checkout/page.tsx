@@ -4,8 +4,8 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
 export const metadata = {
-  title: "Checkout | Iron & Grit",
-  description: "Iron & Grit - Checkout | Iron & Grit"
+    title: "Checkout | Iron & Grit",
+    description: "Iron & Grit - Checkout | Iron & Grit"
 };
 
 
@@ -24,7 +24,7 @@ export default function CheckoutPage() {
 
                         <div className="flex gap-4 mb-8">
                             <div className="w-16 h-16 rounded bg-[#1a2632] overflow-hidden shrink-0">
-                                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=200&auto=format&fit=crop" className="w-full h-full object-cover grayscale" />
+                                <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg leading-tight">Elite Mentorship</h3>

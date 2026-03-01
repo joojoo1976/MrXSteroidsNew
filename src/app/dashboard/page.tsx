@@ -4,8 +4,8 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
 export const metadata = {
-  title: "Dashboard | Iron & Grit",
-  description: "Iron & Grit - Dashboard | Iron & Grit"
+    title: "Dashboard | Iron & Grit",
+    description: "Iron & Grit - Dashboard | Iron & Grit"
 };
 
 
@@ -51,7 +51,7 @@ export default function DashboardPage() {
                     <div className="flex items-center gap-4">
                         <span className="text-sm text-[var(--color-text-secondary)]">Alex Mercer</span>
                         <div className="w-10 h-10 rounded bg-[var(--color-surface-dark)] border border-white/10 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=200&auto=format&fit=crop" alt="Profile" className="w-full h-full object-cover grayscale" />
+                            <img src="/screens/coach-avatar-placeholder.png" alt="Profile" className="w-full h-full object-cover grayscale" />
                         </div>
                     </div>
                 </header>
