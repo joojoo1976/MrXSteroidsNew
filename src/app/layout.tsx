@@ -9,8 +9,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Iron & Grit",
-  description: "Premium bodybuilding coaching platform",
+  title: "Iron & Grit | Elite Steroid Encyclopedia & AI Cycle Builder",
+  description: "The world's most advanced scientific resource for elite bodybuilding. AI-powered cycle planning, 3D anatomical tracking, and SpaceRemit-secured coaching.",
+  keywords: ["Bodybuilding", "Steroid Cycles", "AI Fitness", "SpaceRemit Payments", "Pro Coaching", "Muscle Analytics"],
+  authors: [{ name: "George Maurice" }],
+  openGraph: {
+    title: "Iron & Grit - Scientific Bodybuilding",
+    description: "Unlock the secrets of the Muscle Giants.",
+    type: "website",
+  }
 };
 
 export default function RootLayout({

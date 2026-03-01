@@ -7,6 +7,7 @@
 	"settings": {
 		"geminicodeassist.outlines.automaticOutlineGeneration": true,
 		"github-actions.workflows.pinned.refresh.enabled": true,
-		"github-actions.use-enterprise": false
+		"github-actions.use-enterprise": false,
+		"qwenCode.apiKey": "sk-mr-c94d8fc0be579117f17d47e56d82a0767e32b0af5c01864e94326f0f6cab97ea"
 	}
 }
