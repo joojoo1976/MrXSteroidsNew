@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
+export const metadata = {
+  title: "Dashboard | Trainee | Iron & Grit",
+  description: "Iron & Grit - Dashboard | Trainee | Iron & Grit"
+};
+
+
 const WEEK_TASKS = [
     { done: true, label: 'Submit weekly bodyweight check-in' },
     { done: true, label: 'Log Monday push session' },

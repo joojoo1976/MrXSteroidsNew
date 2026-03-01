@@ -4,6 +4,12 @@ import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
 
+export const metadata = {
+  title: "Design-system | Iron & Grit",
+  description: "Iron & Grit - Design-system | Iron & Grit"
+};
+
+
 export default function DesignSystemPreview() {
     return (
         <div className="min-h-screen bg-[var(--color-background-dark)] text-white p-8 font-sans">

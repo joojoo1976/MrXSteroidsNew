@@ -1,6 +1,13 @@
+import Link from 'next/link';
 import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+
+export const metadata = {
+  title: "Dashboard | Iron & Grit",
+  description: "Iron & Grit - Dashboard | Iron & Grit"
+};
+
 
 export default function DashboardPage() {
     return (
@@ -15,19 +22,19 @@ export default function DashboardPage() {
                 </div>
 
                 <nav className="flex-1 p-4 space-y-2">
-                    <a href="/dashboard" className="flex items-center gap-3 px-4 py-3 rounded bg-[var(--color-surface-dark)] text-white font-bold">
+                    <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 rounded bg-[var(--color-surface-dark)] text-white font-bold">
                         <span className="text-[var(--color-primary)]">⊞</span> Overview
-                    </a>
-                    <a href="/dashboard/clients" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    </Link>
+                    <Link href="/dashboard/clients" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
                         <span>👥</span> Clients
-                    </a>
-                    <a href="/dashboard/workouts" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    </Link>
+                    <Link href="/dashboard/workouts" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
                         <span>⚡</span> Workouts
-                    </a>
-                    <a href="/messages" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    </Link>
+                    <Link href="/messages" className="flex items-center gap-3 px-4 py-3 rounded hover:bg-white/5 text-[var(--color-text-secondary)] hover:text-white transition-colors">
                         <span>✉</span> Messages
                         <span className="ml-auto bg-[var(--color-primary)] text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
-                    </a>
+                    </Link>
                 </nav>
 
                 <div className="p-4 border-t border-[var(--color-surface-dark)]">

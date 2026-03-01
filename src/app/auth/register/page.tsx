@@ -1,8 +1,15 @@
+import Link from 'next/link';
 import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Select } from '@/components/ui/Select';
+
+export const metadata = {
+  title: "Auth | Register | Iron & Grit",
+  description: "Iron & Grit - Auth | Register | Iron & Grit"
+};
+
 
 export default function RegisterPage() {
   return (
@@ -52,9 +59,9 @@ export default function RegisterPage() {
 
           <div className="mt-6 text-center text-sm text-[var(--color-text-secondary)] pt-6 border-t border-[var(--color-surface-dark)]">
             Already have an account?{' '}
-            <a href="/auth/login" className="text-white hover:text-[var(--color-primary)] font-bold transition-colors">
+            <Link href="/auth/login" className="text-white hover:text-[var(--color-primary)] font-bold transition-colors">
               Log in here
-            </a>
+            </Link>
           </div>
         </Card>
       </div>

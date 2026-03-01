@@ -65,14 +65,14 @@ export default function CoachDashboardPage() {
                         { label: 'Messages', icon: '💬', active: false },
                         { label: 'Earnings & Billing', icon: '💳', active: false },
                     ].map(item => (
-                        <a key={item.label} href="#"
+                        <Link key={item.label} href="#"
                             className={`flex items-center gap-3 px-4 py-3 rounded text-sm font-bold transition-all ${item.active
-                                    ? 'bg-[var(--color-primary)]/10 text-white border border-[var(--color-primary)]/20'
-                                    : 'text-[var(--color-text-secondary)] hover:bg-white/5 hover:text-white'
+                                ? 'bg-[var(--color-primary)]/10 text-white border border-[var(--color-primary)]/20'
+                                : 'text-[var(--color-text-secondary)] hover:bg-white/5 hover:text-white'
                                 }`}>
                             <span>{item.icon}</span>
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
                 </nav>
             </aside>
@@ -131,7 +131,7 @@ export default function CoachDashboardPage() {
                             </h3>
                             <div className="space-y-3">
                                 {QUICK_ACTIONS.map(action => (
-                                    <a key={action.label} href={action.href} className="flex items-center justify-between p-3 rounded bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all group">
+                                    <Link key={action.label} href={action.href} className="flex items-center justify-between p-3 rounded bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all group">
                                         <div className="flex items-center gap-3">
                                             <span className="text-xl">{action.icon}</span>
                                             <span className="text-sm font-medium text-white">{action.label}</span>
@@ -139,7 +139,7 @@ export default function CoachDashboardPage() {
                                         {action.count > 0 && (
                                             <span className={`text-sm font-black ${action.color}`}>{action.count}</span>
                                         )}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </Card>
@@ -153,8 +153,8 @@ export default function CoachDashboardPage() {
                                 {(['all', 'pending', 'missed'] as const).map(f => (
                                     <button key={f} onClick={() => setFilter(f)}
                                         className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded transition-all capitalize ${filter === f
-                                                ? 'bg-white text-black'
-                                                : 'bg-white/5 text-[var(--color-text-secondary)] hover:bg-white/10'
+                                            ? 'bg-white text-black'
+                                            : 'bg-white/5 text-[var(--color-text-secondary)] hover:bg-white/10'
                                             }`}>
                                         {f === 'pending' ? 'Needs Review' : f}
                                     </button>

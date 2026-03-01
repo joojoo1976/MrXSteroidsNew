@@ -3,6 +3,12 @@ import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
+export const metadata = {
+  title: "Checkout | Iron & Grit",
+  description: "Iron & Grit - Checkout | Iron & Grit"
+};
+
+
 export default function CheckoutPage() {
     return (
         <div className="min-h-screen bg-[var(--color-background-dark)] flex items-center justify-center p-6 text-white font-sans py-12">

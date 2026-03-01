@@ -1,7 +1,14 @@
+import Link from 'next/link';
 import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+
+export const metadata = {
+  title: "Auth | Login | Iron & Grit",
+  description: "Iron & Grit - Auth | Login | Iron & Grit"
+};
+
 
 export default function LoginPage() {
     return (
@@ -32,18 +39,18 @@ export default function LoginPage() {
                             <input type="checkbox" className="accent-[var(--color-primary)]" />
                             <span>Remember me</span>
                         </label>
-                        <a href="#" className="text-[var(--color-primary)] hover:text-white transition-colors">
+                        <Link href="#" className="text-[var(--color-primary)] hover:text-white transition-colors">
                             Forgot Password?
-                        </a>
+                        </Link>
                     </div>
 
                     <Button variant="primary" className="w-full py-3 text-lg mt-4">Log In</Button>
 
                     <div className="mt-6 text-center text-sm text-[var(--color-text-secondary)] pt-6 border-t border-[var(--color-surface-dark)]">
                         Don't have an account?{' '}
-                        <a href="/auth/register" className="text-white hover:text-[var(--color-primary)] font-bold transition-colors">
+                        <Link href="/auth/register" className="text-white hover:text-[var(--color-primary)] font-bold transition-colors">
                             Sign up here
-                        </a>
+                        </Link>
                     </div>
                 </Card>
             </div>

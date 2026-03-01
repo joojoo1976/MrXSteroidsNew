@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 
@@ -13,17 +14,17 @@ export default function Home() {
             </span>
           </div>
           <div className="hidden md:flex gap-8 text-[var(--color-text-secondary)] font-medium">
-            <a href="#inside" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">What's Inside</a>
-            <a href="#schedules" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Elite Schedules</a>
-            <a href="#plans" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Choose Plan</a>
+            <Link href="#inside" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">What's Inside</Link>
+            <Link href="#schedules" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Elite Schedules</Link>
+            <Link href="#plans" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Choose Plan</Link>
           </div>
           <div className="flex gap-4">
-            <a href="/auth/login">
+            <Link href="/auth/login">
               <Button variant="ghost" aria-label="Access Client Portal">Client Access</Button>
-            </a>
-            <a href="#plans">
+            </Link>
+            <Link href="#plans">
               <Button variant="primary" aria-label="Purchase the Book">Get the Book</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -58,7 +59,7 @@ export default function Home() {
             {/* Visual Teaser */}
             <div className="mt-20 max-w-5xl mx-auto relative rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(217,35,35,0.2)] border border-white/5 group">
               <Image
-                src="/screens/mobile-protocol-discovery-hub.png"
+                src="/screens/home-mobile-protocol-discovery-hub.png"
                 alt="Iron & Grit Protocol Discovery Hub - Advanced Scientific Database View"
                 width={1200}
                 height={675}
@@ -126,7 +127,7 @@ export default function Home() {
             <div className="relative group" aria-hidden="true">
               <div className="aspect-video bg-gradient-to-br from-[var(--color-primary)]/20 to-transparent rounded-3xl border border-[var(--color-primary)]/30 flex items-center justify-center overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image
-                  src="/screens/elite-protocol-library-dashboard.png"
+                  src="/screens/library-elite-protocol-library-dashboard.png"
                   alt="Elite Protocol Library Dashboard - Professional Cycle Management Interface"
                   width={1200}
                   height={675}
@@ -167,7 +168,7 @@ export default function Home() {
               <div className="lg:w-1/2 relative" aria-hidden="true">
                 <div className="relative rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(217,35,35,0.15)] border border-white/10 group">
                   <Image
-                    src="/screens/3d-anatomical-progress-visualizer.png"
+                    src="/screens/progress-3d-anatomical-progress-visualizer.png"
                     alt="3D Anatomical Progress Visualizer"
                     width={1200}
                     height={800}
@@ -181,7 +182,7 @@ export default function Home() {
                 {/* Secondary Asset floating */}
                 <div className="absolute -bottom-10 -left-10 w-64 h-auto rounded-xl overflow-hidden border border-white/10 shadow-2xl hidden md:block">
                   <Image
-                    src="/screens/scientific-genetic-potential-calculator.png"
+                    src="/screens/tools-scientific-genetic-potential-calculator.png"
                     alt="Genetic Potential Calculator"
                     width={500}
                     height={300}
@@ -260,7 +261,7 @@ export default function Home() {
               <div className="lg:w-1/2 relative" aria-hidden="true">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20 rotate-2 translate-x-4">
                   <Image
-                    src="/screens/global-transformation-challenges-hub.png"
+                    src="/screens/challenges-global-transformation-challenges-hub.png"
                     alt="Steroid IQ Challenge Interface"
                     width={800}
                     height={600}

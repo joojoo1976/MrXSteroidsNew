@@ -3,6 +3,12 @@ import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
+export const metadata = {
+  title: "Messages | Iron & Grit",
+  description: "Iron & Grit - Messages | Iron & Grit"
+};
+
+
 export default function MessagesPage() {
     return (
         <div className="min-h-screen bg-[var(--color-background-dark)] text-white font-sans flex flex-col md:flex-row h-screen overflow-hidden">

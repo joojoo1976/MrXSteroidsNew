@@ -196,7 +196,7 @@ export default function CommunityPage() {
                                 { tag: 'MealPrep', posts: 41 },
                             ].map((topic, i) => (
                                 <div key={topic.tag} className="flex items-center justify-between">
-                                    <a href="#" className="text-sm text-white font-bold hover:text-[var(--color-primary)] transition-colors">#{topic.tag}</a>
+                                    <Link href="#" className="text-sm text-white font-bold hover:text-[var(--color-primary)] transition-colors">#{topic.tag}</Link>
                                     <span className="text-xs text-[var(--color-text-secondary)]">{topic.posts} posts</span>
                                 </div>
                             ))}
