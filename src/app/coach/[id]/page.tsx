@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
@@ -139,8 +138,8 @@ export default function CoachProfilePage({ params }: { params: { id: string } })
                     {(['about', 'results', 'packages'] as const).map(tab => (
                         <button key={tab} onClick={() => setActiveTab(tab)}
                             className={`px-5 py-4 text-sm font-bold uppercase tracking-wider border-b-2 transition-all capitalize ${activeTab === tab
-                                    ? 'border-[var(--color-primary)] text-white'
-                                    : 'border-transparent text-[var(--color-text-secondary)] hover:text-white'
+                                ? 'border-[var(--color-primary)] text-white'
+                                : 'border-transparent text-[var(--color-text-secondary)] hover:text-white'
                                 }`}>
                             {tab}
                         </button>
@@ -170,7 +169,7 @@ export default function CoachProfilePage({ params }: { params: { id: string } })
                                 </h2>
                                 <Card className="p-5 border-l-4 border-l-[var(--color-primary)]">
                                     <blockquote className="text-[var(--color-text-secondary)] italic text-base leading-relaxed">
-                                        "{coach.philosophy}"
+                                        &quot;{coach.philosophy}&quot;
                                     </blockquote>
                                 </Card>
                             </section>
@@ -243,7 +242,7 @@ export default function CoachProfilePage({ params }: { params: { id: string } })
                                                     <span key={s} className="text-amber-400">★</span>
                                                 ))}
                                             </div>
-                                            <p className="text-[var(--color-text-secondary)] leading-relaxed italic mb-4">"{t.text}"</p>
+                                            <p className="text-[var(--color-text-secondary)] leading-relaxed italic mb-4">&quot;{t.text}&quot;</p>
                                             <div className="font-bold text-white text-sm">— {t.author}</div>
                                         </Card>
                                     ))}

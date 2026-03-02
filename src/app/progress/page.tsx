@@ -113,8 +113,8 @@ export default function ProgressPage() {
                     {(['body', 'bloodwork', 'photos'] as const).map(t => (
                         <button key={t} onClick={() => setActiveTab(t)}
                             className={`px-5 py-4 text-sm font-bold uppercase tracking-wider border-b-2 transition-all capitalize ${activeTab === t
-                                    ? 'border-[var(--color-primary)] text-white'
-                                    : 'border-transparent text-[var(--color-text-secondary)] hover:text-white'
+                                ? 'border-[var(--color-primary)] text-white'
+                                : 'border-transparent text-[var(--color-text-secondary)] hover:text-white'
                                 }`}>
                             {t === 'body' ? 'Body Composition' : t === 'bloodwork' ? 'Bloodwork' : 'Progress Photos'}
                         </button>
@@ -217,7 +217,7 @@ export default function ProgressPage() {
                             <div className="text-5xl mb-4">📸</div>
                             <h3 className="font-black text-white text-lg mb-2">Progress Photos</h3>
                             <p className="text-[var(--color-text-secondary)] text-sm mb-6">Upload weekly front, back, and side photos. Only your coach can view them.</p>
-                            <Button variant="primary">Upload This Week's Photos</Button>
+                            <Button variant="primary">Upload This Week&apos;s Photos</Button>
                             <p className="text-xs text-[var(--color-text-secondary)] mt-4">Accepted: JPG, PNG · Max 10MB per photo</p>
                         </div>
                     </div>

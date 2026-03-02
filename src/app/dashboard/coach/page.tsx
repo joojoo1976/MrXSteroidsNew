@@ -174,41 +174,63 @@ export default function CoachDashboardPage() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {displayedRoster.map(athlete => (
-                                        <tr key={athlete.id} className="border-b border-white/5 hover:bg-white/5 transition-colors group">
-                                            <td className="px-5 py-4">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">{athlete.avatar}</div>
-                                                    <div className="font-bold text-white">{athlete.name}</div>
-                                                </div>
-                                            </td>
-                                            <td className="px-5 py-4">
-                                                <div className="text-white">{athlete.phase}</div>
-                                                <div className="text-xs text-[var(--color-text-secondary)]">{athlete.plan} · Wk {athlete.week}</div>
-                                            </td>
-                                            <td className="px-5 py-4">
-                                                <div className="flex items-center gap-2">
-                                                    <div className={`font-bold ${athlete.compliance >= 90 ? 'text-green-400' : athlete.compliance >= 80 ? 'text-amber-400' : 'text-[var(--color-primary)]'}`}>
-                                                        {athlete.compliance}%
+                                    {displayedRoster.length === 0 ? (
+                                        <tr>
+                                            <td colSpan={5} className="p-0">
+                                                <div className="py-20 px-4 text-center flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a0a] to-[#050505]">
+                                                    <div className="relative inline-flex items-center justify-center mb-6">
+                                                        <div className="absolute inset-0 bg-[#e63939] blur-3xl opacity-20 rounded-full"></div>
+                                                        <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm relative z-10 shadow-[0_0_20px_rgba(230,57,57,0.2)]">
+                                                            <span className="text-4xl opacity-90" style={{ filter: 'drop-shadow(0 0 8px rgba(230,57,57,0.6))' }}>🔕</span>
+                                                        </div>
                                                     </div>
-                                                    <div className="w-16 h-1.5 bg-white/10 rounded-full overflow-hidden hidden sm:block">
-                                                        <div className={`h-full ${athlete.compliance >= 90 ? 'bg-green-400' : athlete.compliance >= 80 ? 'bg-amber-400' : 'bg-[var(--color-primary)]'}`} style={{ width: `${athlete.compliance}%` }} />
-                                                    </div>
+                                                    <h3 className="text-2xl font-black tracking-tighter uppercase text-white mb-2">No Sessions Found</h3>
+                                                    <p className="text-[var(--color-text-secondary)] max-w-sm mx-auto mb-8 text-sm">
+                                                        Your journey to greatness starts with a single rep. Book your first coach to see stats here.
+                                                    </p>
+                                                    <Link href="/coaches" className="inline-block px-8 py-3 rounded text-sm font-black uppercase tracking-wider text-black bg-[#FFD700] hover:bg-[#FFD700]/90 border border-[#FFD700] transition-colors">
+                                                        Book A Coach
+                                                    </Link>
                                                 </div>
-                                            </td>
-                                            <td className="px-5 py-4">
-                                                {athlete.status === 'pending-review' && <span className="inline-block px-2 py-1 bg-amber-400/10 text-amber-400 border border-amber-400/20 text-xs font-bold rounded">NEEDS REVIEW</span>}
-                                                {athlete.status === 'checked-in' && <span className="inline-block px-2 py-1 bg-green-400/10 text-green-400 border border-green-400/20 text-xs font-bold rounded">ON TRACK</span>}
-                                                {athlete.status === 'missed' && <span className="inline-block px-2 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 text-xs font-bold rounded">MISSED CHECK-IN</span>}
-                                                <div className="text-[10px] text-[var(--color-text-secondary)] mt-1 uppercase">{athlete.lastCheckin}</div>
-                                            </td>
-                                            <td className="px-5 py-4 text-right">
-                                                <Button variant="secondary" className="text-xs py-1.5 px-3">
-                                                    {athlete.status === 'pending-review' ? 'Review Now' : 'Manage'}
-                                                </Button>
                                             </td>
                                         </tr>
-                                    ))}
+                                    ) : (
+                                        displayedRoster.map(athlete => (
+                                            <tr key={athlete.id} className="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                                                <td className="px-5 py-4">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">{athlete.avatar}</div>
+                                                        <div className="font-bold text-white">{athlete.name}</div>
+                                                    </div>
+                                                </td>
+                                                <td className="px-5 py-4">
+                                                    <div className="text-white">{athlete.phase}</div>
+                                                    <div className="text-xs text-[var(--color-text-secondary)]">{athlete.plan} · Wk {athlete.week}</div>
+                                                </td>
+                                                <td className="px-5 py-4">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className={`font-bold ${athlete.compliance >= 90 ? 'text-green-400' : athlete.compliance >= 80 ? 'text-amber-400' : 'text-[var(--color-primary)]'}`}>
+                                                            {athlete.compliance}%
+                                                        </div>
+                                                        <div className="w-16 h-1.5 bg-white/10 rounded-full overflow-hidden hidden sm:block">
+                                                            <div className={`h-full ${athlete.compliance >= 90 ? 'bg-green-400' : athlete.compliance >= 80 ? 'bg-amber-400' : 'bg-[var(--color-primary)]'}`} style={{ width: `${athlete.compliance}%` }} />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="px-5 py-4">
+                                                    {athlete.status === 'pending-review' && <span className="inline-block px-2 py-1 bg-amber-400/10 text-amber-400 border border-amber-400/20 text-xs font-bold rounded">NEEDS REVIEW</span>}
+                                                    {athlete.status === 'checked-in' && <span className="inline-block px-2 py-1 bg-green-400/10 text-green-400 border border-green-400/20 text-xs font-bold rounded">ON TRACK</span>}
+                                                    {athlete.status === 'missed' && <span className="inline-block px-2 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 text-xs font-bold rounded">MISSED CHECK-IN</span>}
+                                                    <div className="text-[10px] text-[var(--color-text-secondary)] mt-1 uppercase">{athlete.lastCheckin}</div>
+                                                </td>
+                                                <td className="px-5 py-4 text-right">
+                                                    <Button variant="secondary" className="text-xs py-1.5 px-3">
+                                                        {athlete.status === 'pending-review' ? 'Review Now' : 'Manage'}
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
                                 </tbody>
                             </table>
                         </div>

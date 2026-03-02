@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
 type Notification = {
@@ -129,8 +128,8 @@ export default function NotificationsPage() {
                     {(['all', 'unread'] as const).map(f => (
                         <button key={f} onClick={() => setFilter(f)}
                             className={`px-4 py-2 rounded text-sm font-bold uppercase tracking-wider transition-all capitalize ${filter === f
-                                    ? 'bg-[var(--color-primary)] text-white'
-                                    : 'bg-[var(--color-surface-dark)] text-[var(--color-text-secondary)] hover:text-white border border-white/10'
+                                ? 'bg-[var(--color-primary)] text-white'
+                                : 'bg-[var(--color-surface-dark)] text-[var(--color-text-secondary)] hover:text-white border border-white/10'
                                 }`}>
                             {f}
                         </button>
@@ -140,16 +139,35 @@ export default function NotificationsPage() {
                 {/* Notification List */}
                 <div className="space-y-3">
                     {displayed.length === 0 ? (
-                        <div className="text-center py-16">
-                            <div className="text-4xl mb-4">🔔</div>
-                            <p className="text-[var(--color-text-secondary)]">No unread notifications.</p>
+                        <div className="text-center py-20 px-4 rounded-xl relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/5 shadow-2xl">
+                            {/* Subtle gold particles effect using absolute positioned divs */}
+                            <div className="absolute top-10 left-10 w-2 h-2 rounded-full bg-[#FFD700] opacity-20 blur-[1px]"></div>
+                            <div className="absolute top-20 right-20 w-3 h-3 rounded-full bg-[#FFD700] opacity-10 blur-[2px]"></div>
+                            <div className="absolute bottom-10 left-1/4 w-1.5 h-1.5 rounded-full bg-[#FFD700] opacity-30 blur-[1px]"></div>
+
+                            {/* Translucent 3D notification bell icon with a soft gold outer glow */}
+                            <div className="relative inline-flex items-center justify-center mb-8">
+                                <div className="absolute inset-0 bg-[#FFD700] blur-3xl opacity-10 rounded-full"></div>
+                                <div className="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm relative z-10 shadow-[0_0_15px_rgba(255,215,0,0.15)]">
+                                    <span className="text-5xl opacity-80" style={{ filter: 'drop-shadow(0 0 10px rgba(255,215,0,0.5))' }}>🔕</span>
+                                </div>
+                            </div>
+
+                            <h3 className="text-2xl font-black tracking-tighter uppercase text-white mb-3">All Quiet on the Front</h3>
+                            <p className="text-[var(--color-text-secondary)] max-w-sm mx-auto mb-8 text-sm leading-relaxed">
+                                When your coach updates your cycle or sends a message, you&apos;ll see it here.
+                            </p>
+
+                            <Link href="/coaches" className="inline-block px-8 py-3 rounded text-sm font-black uppercase tracking-wider text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all shadow-[0_0_15px_rgba(225,29,72,0.2)]">
+                                Explore Marketplace
+                            </Link>
                         </div>
                     ) : (
                         displayed.map(n => (
                             <div key={n.id} onClick={() => markRead(n.id)}
                                 className={`relative rounded border transition-all cursor-pointer ${!n.read
-                                        ? 'bg-[var(--color-surface-dark)] border-white/15 hover:border-white/25'
-                                        : 'bg-transparent border-white/5 hover:border-white/10 opacity-70'
+                                    ? 'bg-[var(--color-surface-dark)] border-white/15 hover:border-white/25'
+                                    : 'bg-transparent border-white/5 hover:border-white/10 opacity-70'
                                     }`}>
                                 {/* Unread indicator */}
                                 {!n.read && (

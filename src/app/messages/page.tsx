@@ -1,4 +1,5 @@
 import React from 'react';
+import NextImage from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
@@ -37,7 +38,7 @@ export default function MessagesPage() {
                                 <h4 className="font-bold text-sm truncate">Alex Mercer</h4>
                                 <span className="text-xs text-[var(--color-text-secondary)]">2m</span>
                             </div>
-                            <p className="text-xs text-[var(--color-text-secondary)] truncate">Don't forget the check-in.</p>
+                            <p className="text-xs text-[var(--color-text-secondary)] truncate">Don&apos;t forget the check-in.</p>
                         </div>
                     </div>
 
@@ -63,8 +64,8 @@ export default function MessagesPage() {
                 {/* Chat Header */}
                 <header className="h-20 border-b border-[var(--color-surface-dark)] flex items-center justify-between p-6 shrink-0 bg-[#0a1017]">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded bg-[#1a2632] flex items-center justify-center font-bold overflow-hidden">
-                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
+                        <div className="w-12 h-12 rounded bg-[#1a2632] flex items-center justify-center font-bold overflow-hidden relative">
+                            <NextImage src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" fill className="object-cover grayscale" />
                         </div>
                         <div>
                             <h3 className="font-bold text-lg">Alex Mercer</h3>
@@ -83,8 +84,8 @@ export default function MessagesPage() {
 
                     {/* Received Message */}
                     <div className="flex gap-4 max-w-2xl">
-                        <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs">
-                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
+                        <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs relative">
+                            <NextImage src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" fill className="object-cover grayscale" />
                         </div>
                         <div>
                             <Card className="p-4 bg-[var(--color-surface-dark)] border-none text-sm leading-relaxed rounded-tl-none">
@@ -101,7 +102,7 @@ export default function MessagesPage() {
                         </div>
                         <div>
                             <Card className="p-4 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-sm leading-relaxed rounded-tr-none text-white">
-                                They felt heavy, not going to lie. I'm focusing on bracing harder before descent. I'll upload the latest form video tonight.
+                                They felt heavy, not going to lie. I&apos;m focusing on bracing harder before descent. I&apos;ll upload the latest form video tonight.
                             </Card>
                             <div className="flex items-center justify-end gap-1 mt-1 mr-1">
                                 <span className="text-xs text-[var(--color-text-secondary)]">10:45 AM</span>
@@ -112,12 +113,12 @@ export default function MessagesPage() {
 
                     {/* Received Message */}
                     <div className="flex gap-4 max-w-2xl">
-                        <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs">
-                            <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
+                        <div className="w-8 h-8 rounded shrink-0 bg-[#1a2632] overflow-hidden mt-1 text-xs relative">
+                            <NextImage src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" fill className="object-cover grayscale" />
                         </div>
                         <div>
                             <Card className="p-4 bg-[var(--color-surface-dark)] border-none text-sm leading-relaxed rounded-tl-none">
-                                Don't forget the check-in.
+                                Don&apos;t forget the check-in.
                             </Card>
                             <span className="text-xs text-[var(--color-text-secondary)] mt-1 ml-1 block">Just now</span>
                         </div>

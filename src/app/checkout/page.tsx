@@ -1,15 +1,94 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-
-export const metadata = {
-    title: "Checkout | Iron & Grit",
-    description: "Iron & Grit - Checkout | Iron & Grit"
-};
-
+import { PaymentService } from '@/services/payment.service';
+import { useRouter } from 'next/navigation';
 
 export default function CheckoutPage() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState(false);
+    const router = useRouter();
+
+    useEffect(() => {
+        const handleSuccess = (e: Event) => {
+            const detail = (e as CustomEvent).detail;
+            console.log('Payment success event received', detail);
+            setSuccess(true);
+            setLoading(false);
+            // Redirect to success page or dashboard after a short delay
+            setTimeout(() => {
+                router.push('/dashboard/trainee');
+            }, 2000);
+        };
+
+        const handleGlobalSuccess = (e: Event) => {
+            const detail = (e as CustomEvent).detail;
+            console.log('Global payment success received', detail);
+            setSuccess(true);
+            setLoading(false);
+            setTimeout(() => {
+                router.push('/dashboard/trainee');
+            }, 2000);
+        };
+
+        const handleError = (e: Event) => {
+            const detail = (e as CustomEvent).detail;
+            setError(detail?.message || 'Payment failed. Please try again.');
+            setLoading(false);
+        };
+
+        window.addEventListener('payment_success', handleSuccess);
+        window.addEventListener('payment_success_global', handleGlobalSuccess);
+        window.addEventListener('payment_error', handleError);
+        window.addEventListener('payment_cancelled', () => setLoading(false));
+
+        return () => {
+            window.removeEventListener('payment_success', handleSuccess);
+            window.removeEventListener('payment_success_global', handleGlobalSuccess);
+            window.removeEventListener('payment_error', handleError);
+            window.removeEventListener('payment_cancelled', () => setLoading(false));
+        };
+    }, [router]);
+
+    const handlePayment = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+
+        try {
+            const paymentService = PaymentService.getInstance();
+            await paymentService.initiatePayment(150, 'USD', {
+                plan: 'Elite Mentorship',
+                coach: 'Alex Mercer'
+            });
+        } catch (err: unknown) {
+            const message = err instanceof Error ? err.message : 'Could not initiate payment';
+            setError(message);
+            setLoading(false);
+        }
+    };
+
+    if (success) {
+        return (
+            <div className="min-h-screen bg-[var(--color-background-dark)] flex items-center justify-center p-6 text-white text-center">
+                <Card className="p-12 space-y-6 max-w-md border-[var(--color-primary)]">
+                    <div className="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border border-green-500/50">
+                        ✓
+                    </div>
+                    <h1 className="text-3xl font-black uppercase tracking-tight">Payment Successful</h1>
+                    <p className="text-[var(--color-text-secondary)]">
+                        Welcome to the Elite Mentorship program. Redirecting you to your dashboard...
+                    </p>
+                </Card>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-[var(--color-background-dark)] flex items-center justify-center p-6 text-white font-sans py-12">
 
@@ -23,8 +102,8 @@ export default function CheckoutPage() {
                         </h2>
 
                         <div className="flex gap-4 mb-8">
-                            <div className="w-16 h-16 rounded bg-[#1a2632] overflow-hidden shrink-0">
-                                <img src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" className="w-full h-full object-cover grayscale" />
+                            <div className="w-16 h-16 rounded bg-[#1a2632] overflow-hidden shrink-0 relative">
+                                <Image src="/screens/coach-avatar-placeholder.png" alt="Coach Avatar" fill className="object-cover grayscale" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg leading-tight">Elite Mentorship</h3>
@@ -74,11 +153,16 @@ export default function CheckoutPage() {
                             <span className="text-[var(--color-primary)]">#</span> Payment Information
                         </h3>
 
-                        <div className="space-y-6 relative z-10">
+                        <form onSubmit={handlePayment} className="space-y-6 relative z-10">
+                            {error && (
+                                <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-500 text-sm rounded text-center">
+                                    {error}
+                                </div>
+                            )}
+
                             <Input
                                 label="Cardholder Name"
                                 placeholder="JOHN DOE"
-                                defaultValue="JOHN DOE"
                             />
 
                             <div>
@@ -113,15 +197,20 @@ export default function CheckoutPage() {
                                 placeholder="10001"
                             />
 
-                            <Button variant="primary" className="w-full py-4 text-xl mt-4 font-black tracking-wider shadow-[0_4px_20px_rgba(217,35,35,0.4)] transition-all hover:-translate-y-1">
-                                Pay $150.00
+                            <Button
+                                variant="primary"
+                                type="submit"
+                                disabled={loading}
+                                className="w-full py-4 text-xl mt-4 font-black tracking-wider shadow-[0_4px_20px_rgba(217,35,35,0.4)] transition-all hover:-translate-y-1"
+                            >
+                                {loading ? 'Processing...' : 'Pay $150.00'}
                             </Button>
 
                             <p className="text-center text-xs text-[var(--color-text-secondary)] flex items-center justify-center gap-1 mt-4">
                                 <span className="inline-block w-3 h-3 rounded-full bg-green-500/20 border border-green-500"></span>
                                 End-to-end encrypted integration
                             </p>
-                        </div>
+                        </form>
                     </Card>
                 </div>
 
@@ -129,3 +218,4 @@ export default function CheckoutPage() {
         </div>
     );
 }
+

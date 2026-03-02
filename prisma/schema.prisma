@@ -1,16 +1,279 @@
-
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String              @id @default(uuid())
+  email             String              @unique
+  fullName          String?             @map("full_name")
+  role              UserRole            @default(TRAINEE)
+  avatarUrl         String?             @map("avatar_url")
+  createdAt         DateTime            @default(now()) @map("created_at")
+  updatedAt         DateTime            @updatedAt @map("updated_at")
+  athleteProfile    AthleteProfile?
+  coachProfile      CoachProfile?
+  comments          Comment[]
+  likes             Like[]
+  posts             Post[]
+  profile           Profile?
+  challenge_entries challenge_entries[]
+  messages          messages[]
+  notifications     notifications[]
+  payments          payments[]
+  protocols         protocols[]
+}
+
+model AthleteProfile {
+  id           String        @id @default(uuid())
+  coachId      String?       @map("coach_id")
+  userId       String        @unique @map("user_id")
+  coach        CoachProfile? @relation(fields: [coachId], references: [id])
+  user         User          @relation(fields: [userId], references: [id])
+  checkins     CheckIn[]
+  subscription Subscription?
+
+  @@index([coachId], map: "idx_athlete_coach_id")
+}
+
+model CoachProfile {
+  id              String           @id @default(uuid())
+  specialization  String[]
+  experienceYears Int?             @map("experience_years")
+  coachingStyle   String?          @map("coaching_style")
+  userId          String           @unique @map("user_id")
+  athletes        AthleteProfile[]
+  user            User             @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+  authorId  String   @map("author_id")
+  postId    String   @map("post_id")
+  author    User     @relation(fields: [authorId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+
+  @@index([authorId], map: "idx_comment_author_id")
+  @@index([createdAt], map: "idx_comment_created_at")
+  @@index([postId], map: "idx_comment_post_id")
+}
+
+model Like {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  postId    String   @map("post_id")
+  userId    String   @map("user_id")
+  post      Post     @relation(fields: [postId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([postId, userId])
+  @@index([postId], map: "idx_like_post_id")
+  @@index([userId], map: "idx_like_user_id")
+}
+
+model Post {
+  id        String    @id @default(uuid())
+  title     String
+  content   String
+  category  String    @default("General")
+  createdAt DateTime  @default(now()) @map("created_at")
+  authorId  String    @map("author_id")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  comments  Comment[]
+  likes     Like[]
+  author    User      @relation(fields: [authorId], references: [id])
+
+  @@index([authorId], map: "idx_post_author_id")
+  @@index([category], map: "idx_post_category")
+  @@index([createdAt(sort: Desc)], map: "idx_post_created_at")
+}
+
+model Profile {
+  id        String  @id @default(uuid())
+  bio       String?
+  instagram String?
+  location  String?
+  userId    String  @unique @map("user_id")
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model Subscription {
+  id             String         @id @default(uuid())
+  planType       String         @map("plan_type")
+  status         String
+  expiresAt      DateTime?      @map("expires_at")
+  athleteId      String         @unique @map("athlete_id")
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+  athleteProfile AthleteProfile @relation(fields: [athleteId], references: [id])
+
+  @@index([athleteId], map: "idx_subscription_athlete_id")
+  @@index([status], map: "idx_subscription_status")
+}
+
+model CheckIn {
+  id         String         @id @default(uuid())
+  weight     Float?
+  bodyFat    Float?         @map("body_fat")
+  notes      String?
+  createdAt  DateTime       @default(now()) @map("created_at")
+  athleteId  String         @map("athlete_id")
+  feedback   String?
+  sleepHours Float?         @map("sleep_hours")
+  status     String         @default("PENDING")
+  steps      Int?
+  updatedAt  DateTime       @updatedAt @map("updated_at")
+  athlete    AthleteProfile @relation(fields: [athleteId], references: [id])
+
+  @@index([athleteId], map: "idx_checkin_athlete_id")
+  @@index([createdAt(sort: Desc)], map: "idx_checkin_created_at")
+  @@index([status], map: "idx_checkin_status")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model challenge_entries {
+  id              String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  challenge_id    String     @db.Uuid
+  user_id         String
+  score           Int?       @default(0)
+  rank            Int?
+  submission_data Json?      @default("{}")
+  status          String     @default("ACTIVE")
+  created_at      DateTime   @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime   @default(now()) @db.Timestamptz(6)
+  challenges      challenges @relation(fields: [challenge_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  User            User       @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([challenge_id, user_id])
+  @@index([challenge_id], map: "idx_challenge_entries_challenge_id")
+  @@index([score(sort: Desc)], map: "idx_challenge_entries_score")
+  @@index([user_id], map: "idx_challenge_entries_user_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model challenges {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title             String
+  category          String
+  status            String              @default("UPCOMING")
+  description       String?
+  difficulty        String?             @default("Intermediate")
+  prize             String?
+  badge             String?
+  color             String?             @default("#e11d48")
+  starts_at         DateTime?           @db.Timestamptz(6)
+  ends_at           DateTime?           @db.Timestamptz(6)
+  created_at        DateTime            @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime            @default(now()) @db.Timestamptz(6)
+  challenge_entries challenge_entries[]
+
+  @@index([category], map: "idx_challenges_category")
+  @@index([status], map: "idx_challenges_status")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model conversations {
+  id              String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  participant_ids String[]
+  last_message_at DateTime?  @default(now()) @db.Timestamptz(6)
+  created_at      DateTime   @default(now()) @db.Timestamptz(6)
+  messages        messages[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model messages {
+  id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  conversation_id String        @db.Uuid
+  sender_id       String
+  content         String
+  message_type    String        @default("text")
+  read            Boolean       @default(false)
+  created_at      DateTime      @default(now()) @db.Timestamptz(6)
+  conversations   conversations @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  User            User          @relation(fields: [sender_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([conversation_id], map: "idx_messages_conversation_id")
+  @@index([created_at], map: "idx_messages_created_at")
+  @@index([sender_id], map: "idx_messages_sender_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model notifications {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String
+  type         String
+  title        String
+  body         String?
+  read         Boolean  @default(false)
+  action_label String?
+  action_href  String?
+  metadata     Json?    @default("{}")
+  created_at   DateTime @default(now()) @db.Timestamptz(6)
+  User         User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([created_at(sort: Desc)], map: "idx_notifications_created_at")
+  @@index([read], map: "idx_notifications_read")
+  @@index([user_id], map: "idx_notifications_user_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model payments {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id        String
+  amount         Decimal  @db.Decimal(10, 2)
+  currency       String   @default("USD")
+  status         String   @default("PENDING")
+  payment_method String?  @default("spaceremit")
+  transaction_id String?  @unique
+  metadata       Json?    @default("{}")
+  plan_type      String?
+  created_at     DateTime @default(now()) @db.Timestamptz(6)
+  updated_at     DateTime @default(now()) @db.Timestamptz(6)
+  User           User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([created_at(sort: Desc)], map: "idx_payments_created_at")
+  @@index([status], map: "idx_payments_status")
+  @@index([user_id], map: "idx_payments_user_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model protocols {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  tier        String
+  duration    String?
+  compounds   Json?    @default("[]")
+  pct         Json?    @default("[]")
+  description String?
+  tags        String[] @default([])
+  locked      Boolean  @default(true)
+  views_count Int      @default(0)
+  rating      Decimal? @default(0.0) @db.Decimal(2, 1)
+  expert_note String?
+  author_id   String?
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime @default(now()) @db.Timestamptz(6)
+  User        User?    @relation(fields: [author_id], references: [id], onUpdate: NoAction)
+
+  @@index([locked], map: "idx_protocols_locked")
+  @@index([rating(sort: Desc)], map: "idx_protocols_rating")
+  @@index([tier], map: "idx_protocols_tier")
+}
+
+enum UserRole {
+  ADMIN
+  COACH
+  TRAINEE
 }

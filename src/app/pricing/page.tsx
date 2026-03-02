@@ -31,7 +31,7 @@ export default function PricingPage() {
                         No BS Pricing.<br /> <span className="text-[var(--color-primary)]">Just Results.</span>
                     </h1>
                     <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                        Whether you want access to our science-backed protocol library, or you need elite 1-on-1 coaching to prep for stage day, we have a tier for you. Don't sign up if you aren't ready to work.
+                        Whether you want access to our science-backed protocol library, or you need elite 1-on-1 coaching to prep for stage day, we have a tier for you. Don&apos;t sign up if you aren&apos;t ready to work.
                     </p>
 
                     {/* Billing Toggle */}

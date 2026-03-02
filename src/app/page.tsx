@@ -14,7 +14,7 @@ export default function Home() {
             </span>
           </div>
           <div className="hidden md:flex gap-8 text-[var(--color-text-secondary)] font-medium">
-            <Link href="#inside" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">What's Inside</Link>
+            <Link href="#inside" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">What&apos;s Inside</Link>
             <Link href="#schedules" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Elite Schedules</Link>
             <Link href="#plans" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]">Choose Plan</Link>
           </div>
@@ -74,7 +74,7 @@ export default function Home() {
         <section id="inside" aria-labelledby="inside-title" className="py-24 bg-[#0a1017]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 id="inside-title" className="text-4xl font-black uppercase italic mb-4">What's Inside This Book?</h2>
+              <h2 id="inside-title" className="text-4xl font-black uppercase italic mb-4">What&apos;s Inside This Book?</h2>
               <div className="h-1 w-24 bg-[var(--color-primary)] mx-auto" aria-hidden="true"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -251,7 +251,7 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
                 <article className="p-8 bg-white/10 border-white/20 text-white backdrop-blur-md rounded-2xl shadow-2xl">
-                  <p className="text-xl font-bold mb-8 italic">"What is the primary difference between Nolvadex and Clomid in PCT?"</p>
+                  <p className="text-xl font-bold mb-8 italic">&quot;What is the primary difference between Nolvadex and Clomid in PCT?&quot;</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Button variant="secondary" className="border-white/40 hover:bg-white/20" aria-label="Answer A: Hypothalamic Effect">Hypothalamic Effect</Button>
                     <Button variant="secondary" className="border-white/40 hover:bg-white/20" aria-label="Answer B: Estrogen Receptivity">Estrogen Receptivity</Button>
@@ -285,12 +285,12 @@ export default function Home() {
               />
             </div>
             <article>
-              <h2 id="bio-title" className="text-3xl font-black uppercase italic mb-6">George Maurice: The Mastermind Behind "Mr. X"</h2>
+              <h2 id="bio-title" className="text-3xl font-black uppercase italic mb-6">George Maurice: The Mastermind Behind &quot;Mr. X&quot;</h2>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
-                George Maurice is not just an author; he is the navigator venturing into the forbidden zones many fear to tread. Through his controversial book, "Mr. X Steroid," George breaks the silence, fueling a raw passion for the "Iron Game" with the intricate science of longevity and modern medicine.
+                George Maurice is not just an author; he is the navigator venturing into the forbidden zones many fear to tread. Through his controversial book, &quot;Mr. X Steroid,&quot; George breaks the silence, fueling a raw passion for the &quot;Iron Game&quot; with the intricate science of longevity and modern medicine.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                He doesn't just offer a book; he hands you the keys to the physique you've always dreamed of, with the eye of an expert and the mind of a scientist. "From knowledge to muscle, build stronger, smarter."
+                He doesn&apos;t just offer a book; he hands you the keys to the physique you&apos;ve always dreamed of, with the eye of an expert and the mind of a scientist. &quot;From knowledge to muscle, build stronger, smarter.&quot;
               </p>
             </article>
           </div>

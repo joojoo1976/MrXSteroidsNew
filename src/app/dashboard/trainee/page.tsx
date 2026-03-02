@@ -4,8 +4,8 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
 export const metadata = {
-  title: "Dashboard | Trainee | Iron & Grit",
-  description: "Iron & Grit - Dashboard | Trainee | Iron & Grit"
+    title: "Dashboard | Trainee | Iron & Grit",
+    description: "Iron & Grit - Dashboard | Trainee | Iron & Grit"
 };
 
 
@@ -68,8 +68,8 @@ export default function TraineeDashboardPage() {
                     ].map(item => (
                         <Link key={item.href} href={item.href}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded text-sm transition-colors ${item.active
-                                    ? 'bg-[var(--color-surface-dark)] text-white font-bold'
-                                    : 'text-[var(--color-text-secondary)] hover:text-white hover:bg-white/5'
+                                ? 'bg-[var(--color-surface-dark)] text-white font-bold'
+                                : 'text-[var(--color-text-secondary)] hover:text-white hover:bg-white/5'
                                 }`}>
                             <span>{item.icon}</span>
                             <span className="flex-1">{item.label}</span>
@@ -197,7 +197,7 @@ export default function TraineeDashboardPage() {
                                         <div className="font-bold text-white text-sm mb-0.5">Coach Marcus Webb</div>
                                         <div className="text-xs text-[var(--color-text-secondary)] mb-2">2 hours ago</div>
                                         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                                            Great progress this week. Your deadlift is tracking 2 weeks ahead of where I projected. Bump the working sets by one set on squats this week — you're recovered enough. Submit bloodwork before Friday, we'll evaluate AI dosage at week 8.
+                                            Great progress this week. Your deadlift is tracking 2 weeks ahead of where I projected. Bump the working sets by one set on squats this week — you&apos;re recovered enough. Submit bloodwork before Friday, we&apos;ll evaluate AI dosage at week 8.
                                         </p>
                                         <Link href="/messages" className="text-[var(--color-primary)] text-xs font-bold mt-2 inline-block hover:underline">
                                             Reply in Messages →

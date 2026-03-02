@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
@@ -50,8 +51,8 @@ export default function DashboardPage() {
                     <h1 className="text-xl font-bold">Coach Dashboard</h1>
                     <div className="flex items-center gap-4">
                         <span className="text-sm text-[var(--color-text-secondary)]">Alex Mercer</span>
-                        <div className="w-10 h-10 rounded bg-[var(--color-surface-dark)] border border-white/10 overflow-hidden">
-                            <img src="/screens/coach-avatar-placeholder.png" alt="Profile" className="w-full h-full object-cover grayscale" />
+                        <div className="w-10 h-10 rounded bg-[var(--color-surface-dark)] border border-white/10 overflow-hidden relative">
+                            <Image src="/screens/coach-avatar-placeholder.png" alt="Profile" fill className="object-cover grayscale" />
                         </div>
                     </div>
                 </header>

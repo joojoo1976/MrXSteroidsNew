@@ -1,0 +1,51 @@
+﻿node.exe : Environment 
+variables loaded from 
+.env
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Environment v   
+ ariables loaded fr    
+om .env:String) []    
+, RemoteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+Prisma schema loaded from prisma\schema.prisma
+
+Error: Prisma schema 
+validation - (validate 
+wasm)
+Error code: P1012
+[1;91merror[0m: 
+[1mAttribute not 
+known: 
+"@updated_at".[0m
+  [1;94m-->[0m  [4mp
+risma\schema.prisma:30
+[0m
+[1;94m   | [0m
+[1;94m29 | [0m  
+created_at    DateTime 
+ @default(now())
+[1;94m30 | [0m  
+updated_at    DateTime 
+ [1;91m@updated_at[0m
+[1;94m   | [0m
+
+Validation Error 
+Count: 1
+[Context: validate]
+
+Prisma CLI Version : 
+6.19.2

@@ -90,8 +90,8 @@ export default function CommunityPage() {
                         {CATEGORIES.map(cat => (
                             <button key={cat} onClick={() => setActiveCategory(cat)}
                                 className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
-                                        ? 'bg-white text-black'
-                                        : 'bg-white/5 text-[var(--color-text-secondary)] hover:bg-white/10 hover:text-white'
+                                    ? 'bg-white text-black'
+                                    : 'bg-white/5 text-[var(--color-text-secondary)] hover:bg-white/10 hover:text-white'
                                     }`}>
                                 {cat}
                             </button>
@@ -194,7 +194,7 @@ export default function CommunityPage() {
                                 { tag: 'Anavar', posts: 76 },
                                 { tag: 'FormCheck', posts: 54 },
                                 { tag: 'MealPrep', posts: 41 },
-                            ].map((topic, i) => (
+                            ].map((topic) => (
                                 <div key={topic.tag} className="flex items-center justify-between">
                                     <Link href="#" className="text-sm text-white font-bold hover:text-[var(--color-primary)] transition-colors">#{topic.tag}</Link>
                                     <span className="text-xs text-[var(--color-text-secondary)]">{topic.posts} posts</span>

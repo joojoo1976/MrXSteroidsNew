@@ -47,7 +47,7 @@ export default function AboutPage() {
                         <div className="text-4xl mb-6">🩸</div>
                         <h3 className="font-black text-white text-xl uppercase tracking-wider mb-4">Bloodwork Dictates All</h3>
                         <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm">
-                            We don't coach by feel. Dosages, AI implementation, and PCT timing are determined strictly by individual blood markers. Health is the prerequisite for performance.
+                            We don&apos;t coach by feel. Dosages, AI implementation, and PCT timing are determined strictly by individual blood markers. Health is the prerequisite for performance.
                         </p>
                     </Card>
                     <Card className="p-8 border-t-2 border-t-white">
@@ -61,7 +61,7 @@ export default function AboutPage() {
                         <div className="text-4xl mb-6">💪</div>
                         <h3 className="font-black text-white text-xl uppercase tracking-wider mb-4">Iron Discipline</h3>
                         <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm">
-                            Chemicals don't do the work. The barbell does. Our platform requires strict adherence to training, nutrition, and recovery. We don't coach lazy athletes.
+                            Chemicals don&apos;t do the work. The barbell does. Our platform requires strict adherence to training, nutrition, and recovery. We don&apos;t coach lazy athletes.
                         </p>
                     </Card>
                 </div>
